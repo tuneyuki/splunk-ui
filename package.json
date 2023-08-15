@@ -12,11 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@splunk/react-ui": "^4.19.0",
+    "@splunk/visualization-context": "^25.9.1",
+    "@splunk/visualizations": "^25.9.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "^5.0.1",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.1.1"
   },
   "browserslist": {
     "production": [
