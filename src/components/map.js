@@ -2,7 +2,8 @@ import React from 'react';
 import Map from '@splunk/visualizations/Map';
 import { MapContextProvider, testTileConfig } from '@splunk/visualization-context/MapContext';
 
-const MyAppWithSplunkMap = () => {
+const MyAppWithSplunkMap = props => {
+    // const dataSouce = props.dataSource
     return (
         <MapContextProvider value={{ defaultTileConfig: testTileConfig }}>
         <Map
