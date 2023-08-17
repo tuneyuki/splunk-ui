@@ -2,6 +2,9 @@ import './App.css';
 import { visualizations } from './components/preset'
 import MyAppWithSplunkLineChart from './components/linechats';
 import MyAppWithSplunkMap from './components/map';
+import SplunkThemeProvider from '@splunk/themes/SplunkThemeProvider';
+import { useState } from 'react';
+
 
 function App() {
   // 変数定義
@@ -19,6 +22,9 @@ function App() {
   //  data = resdata 
   // })
 
+  const [theme, setTheme] = useState("light");
+  // const theme = 'light'
+  
   // LineChartデータ
   const linedata = {
     primary: {
@@ -53,6 +59,13 @@ function App() {
     },
   }
 
+  const toLight = () => {
+    setTheme('light')
+  }
+
+  const toDark = () => {
+    setTheme('dark')
+  }
 
   return (
     <div className="bg-gray-100 dark:bg-gray-700 border-4 h-screen w-screen flex flex-col justify-between">
@@ -61,12 +74,19 @@ function App() {
       </header>
       {/* メイン */}
       <div className='bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border-2 h-full w-full flex flex-col'>
-        This Is main
-        <MyAppWithSplunkLineChart
-          dataSource={linedata}
-        />
-        <MyAppWithSplunkMap />
-        <map />
+        <div className='flex justify-between'>
+          <p className='text-lg bold m-2'>This is Main</p>
+          <div className='px-4'>
+            <button className='rounded-lg border-2 bg-gray-400 text-gray-800 m-2 px-2 hover:bg-gray-300 active:bg-gray-200' onClick={toLight}>light</button>
+            <button className='rounded-lg border-2 bg-gray-800 text-gray-300 m-2 px-2 hover:bg-gray-500 active:bg-gray-400' onClick={toDark}>dark</button>
+          </div>
+        </div>
+        <SplunkThemeProvider family="prisma" density="compact" colorScheme={theme}>
+          <MyAppWithSplunkLineChart
+            dataSource={linedata}
+          />
+          <MyAppWithSplunkMap />
+        </SplunkThemeProvider>
       </div>
       <footer className='bg-gray-500 text-white border-2 h-8 bottom-0'>
         This is footer

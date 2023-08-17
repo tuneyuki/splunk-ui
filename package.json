@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@splunk/themes": "^0.16.1",
     "@splunk/visualization-context": "^25.9.1",
     "@splunk/visualizations": "^25.9.1",
     "react": "^16.14.0",
